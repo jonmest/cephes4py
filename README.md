@@ -7,8 +7,10 @@ I wanted to use SciPy special functions in Numba functions running in nopython m
 
 While PyCephes is much more bare-bones, a lazy ad hoc experiment indicates that there are some performance improvements, see [this notebook](/workspaces/pycephes/test.ipynb).
 
-## Supported Cephes functions
-See [FUNCTIONS.txt](./FUNCTIONS.txt)                                 
+## Cephes function bindings
+See [FUNCTIONS.txt](./FUNCTIONS.txt)
+
+I haven't tested most of them, but as long as the parameters and return types are scalar-valued they should work. Passing Numpy arrays require some more work.
 
 ## Installation
 1. Install the [hcephes](https://github.com/limix/hcephes) binary. I recommend compiling it from source - but you'll need Cmake.
