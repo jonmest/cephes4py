@@ -1,4 +1,4 @@
-import _hcephes
+import _pycephes
 import logging
 from importlib.metadata import version
 import sys
@@ -16,8 +16,8 @@ except ModuleNotFoundError as _:
 if numba_installed:
     try:
         from numba.core.typing.cffi_utils import register_module as _register_module
-        _register_module(_hcephes)
+        _register_module(_pycephes)
     except ModuleNotFoundError as _:
         logging.warn("Failed to register Cephes bindings to Numba. You will be unable to call the bindings in Numba-jitted functions in nopython mode.")
 
-from _hcephes.lib import hcephes_bdtr as bdtr
+from _pycephes.lib import hcephes_bdtr as bdtr
