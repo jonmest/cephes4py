@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Install devdeps
         run: sudo apt-get install -y libffi-dev cmake
+      - name: chmod
+        run: sudo chmod +x ci/before-build-linux
       - name: install hcephes
         run: bash <(curl -fsSL https://raw.githubusercontent.com/limix/hcephes/master/install)
       
