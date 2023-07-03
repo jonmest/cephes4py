@@ -1,0 +1,161 @@
+Arithmetic and Algebraic
+Square root                     sqrt
+Long integer square root        lsqrt
+Cube root                       cbrt
+Evaluate polynomial             polevl
+Evaluate Chebyshev series       chbevl
+Round to nearest integer value  round
+Truncate upward to integer      ceil
+Truncate downward to integer    floor
+Extract exponent                frexp
+Add integer to exponent         ldexp
+Absolute value                  fabs
+Rational arithmetic             euclid
+Roots of a polynomial           polrt
+Reversion of power series       revers
+
+Polynomial arithmetic
+Add polynomials                 poladd
+Subtract polynomials            polsub
+Multiply polynomials            polmul
+Divide polynomials              poldiv
+Substitute polynomial variable  polsbt
+Evaluate polynomial             poleva
+Set all coefficients to zero    polclr
+Copy coefficients               polmov
+Display coefficients            polprt
+Square root of a polynomial     polsqt
+Arctangent                      polatn
+Sine                            polsin
+Reversion of power series       revers
+
+Exponential and Trigonometric
+Arc cosine                      acos
+Arc hyperbolic cosine           acosh
+Arc hyperbolic sine             asinh
+Arc hyperbolic tangent          atanh
+Arcsine                         asin
+Arctangent                      atan
+Quadrant correct arctangent     atan2
+Cosine                          cos
+Cosine of arg in degrees        cosdg
+Exponential, base e             exp
+Exponential, base 2             exp2
+Exponential, base 10            exp10
+Hyperbolic cosine               cosh
+Hyperbolic sine                 sinh
+Hyperbolic tangent              tanh
+Logarithm, base e               log
+Logarithm, base 2               log2
+Logarithm, base 10              log10
+Power                           pow
+Integer Power                   powi
+Sine                            sin
+Sine of arg in degrees          sindg
+Tangent                         tan
+Tangent of arg in degrees       tandg
+
+Exponential integral
+Exponential integral            expn
+Hyperbolic cosine integral      shichi
+Hyperbolic sine integral        shichi
+Cosine integral                 sici
+Sine integral                   sici
+
+Gamma
+Beta                            beta
+Factorial                       fac
+Gamma                           gamma
+Logarithm of gamma function     lgam
+Incomplete beta integral        incbet
+Inverse beta integral           incbi
+Incomplete gamma integral       igam
+Complemented gamma integral     igamc
+Inverse gamma integral          igami
+Psi (digamma) function          psi
+Reciprocal Gamma                rgamma
+
+Error function
+Error function                  erf
+Complemented error function     erfc
+Dawson's integral               dawsn
+Fresnel integral (C)            fresnl
+Fresnel integral (S)            fresnl
+
+Bessel
+Airy (Ai)                       airy
+Airy (Ai')                      airy
+Airy (Bi)                       airy
+Airy (Bi')                      airy
+Bessel, order 0                 j0
+Bessel, order 1                 j1
+Bessel, order n                 jn
+Bessel, noninteger order        jv
+Bessel, second kind, order 0    y0
+Bessel, second kind, order 1    y1
+Bessel, second kind, order n    yn
+Bessel, noninteger order        yv
+Modified Bessel, order 0        i0
+Exponentially scaled i0         i0e
+Modified Bessel, order 1        i1
+Exponentially scaled i1         i1e
+Modified Bessel, nonint. order  iv
+Mod. Bessel, 3rd kind, order 0  k0
+Exponentially scaled k0         k0e
+Mod. Bessel, 3rd kind, order 1  k1
+Exponentially scaled k1         k1e
+Mod. Bessel, 3rd kind, order n  kn
+
+Hypergeometric
+Confluent hypergeometric        hyperg
+Gauss hypergeometric function   hyp2f1
+2F0                             hyp2f0f
+1F2                             onef2f
+3F0                             threef0f
+
+Elliptic
+Complete elliptic integral (E)   ellpe
+Incomplete elliptic integral (E) ellie
+Complete elliptic integral (K)   ellpk
+Incomplete elliptic integral (K) ellik
+Jacobian elliptic function (sn)  ellpj
+Jacobian elliptic function (cn)  ellpj
+Jacobian elliptic function (dn)  ellpj
+Jacobian elliptic function (phi) ellpj
+
+Probability
+Binomial distribution           bdtr
+Complemented binomial           bdtrc
+Inverse binomial                bdtri
+Chi square distribution         chdtr
+Complemented Chi square         chdtrc
+Inverse Chi square              chdtri
+F distribution                  fdtr
+Complemented F                  fdtrc
+Inverse F distribution          fdtri
+Gamma distribution              gdtr
+Complemented gamma              gdtrc
+Negative binomial distribution  nbdtr
+Complemented negative binomial  nbdtrc
+Normal distribution             ndtr
+Inverse normal distribution     ndtri
+Poisson distribution            pdtr
+Complemented Poisson            pdtrc
+Inverse Poisson distribution    pdtri
+Student's t distribution        stdtr
+
+Miscellaneous
+Dilogarithm                     spence
+Riemann Zeta function           zetac
+Two argument zeta function      zeta
+Struve function                 struve
+
+Matrix
+Fast Fourier transform          fftr
+Simultaneous linear equations   simq
+Simultaneous linear equations   gels (symmetric coefficient matrix)
+Matrix inversion                minv
+Matrix multiply                 mmmpy
+Matrix times vector             mvmpy
+Matrix transpose                mtransp
+Eigenvectors (symmetric matrix) eigens
