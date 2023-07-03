@@ -1,0 +1,7 @@
+**__pycache__**
+build
+pycephes.egg-info
+*.c
+*.o
+*.cpython
+*.so
