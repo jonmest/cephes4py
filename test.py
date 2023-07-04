@@ -1,3 +1,5 @@
+from cffi import FFI
+import numpy as np
 from numpy.testing import assert_almost_equal
 from scipy.special import bdtr as scipy_btdr, smirnov as scipy_smirnov, jv as scipy_jv, ellipe as scipy_ellipe, fdtr as scipy_fdtr
 import numba as nb
@@ -56,10 +58,18 @@ def test_fdtr():
     actual = pycephes.fdtr(1, 2, 1)
     assert_almost_equal(actual, expected)
 
+
+def test_chbevl():
+    array = np.zeros(29, dtype=np.float_)
+    array[:] = -8
+    pycephes.chbevl(2, pycephes.to_buf(array), 32)
+
 if __name__ == "__main__":
+    test_chbevl()
     test_bdtr()
     test_btdr_numba_compatible()
     test_smirnov()    
     test_jv()
     test_ellipe()
     test_fdtr()
+

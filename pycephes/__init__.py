@@ -1,17 +1,11 @@
 import _pycephes
 import logging
 import os
+
+import numpy as np
 from ._test import test
 
-from _pycephes.lib import hcephes_bdtr as _bdtr
-
-def bdtr(k: int, n: int, p: float):
-    """
-    Binomial distribution
-    """
-    return _bdtr(k, n, p)
-
-
+from _pycephes.lib import hcephes_bdtr as bdtr
 from _pycephes.lib import hcephes_bdtrc as bdtrc
 from _pycephes.lib import hcephes_bdtri as bdtri
 from _pycephes.lib import hcephes_beta as beta
@@ -277,3 +271,28 @@ def phelp(fnc):
             if fnc.__name__ in line:
                 signature = line.rstrip()
     return signature
+
+data_type_map = {
+    'float64': 'double[]',
+    'float32': 'float[]',
+    'int64': 'long[]',
+    'int32': 'int[]'
+}
+
+def np_from_buf(a: np.array):
+    """ 
+    Utility function to automatically get the C type and call FFI().from_buffer().
+    Very primitive. Example:
+    >> array = np.zeros(29, dtype=np.float_)
+    >> array[:] = -8
+    >> pycephes.chbevl(2, pycephes.to_buf(array), 32)
+    """
+    t = a.dtype.name
+    if t.startswith('float'):
+        ct = 'double[]'
+    elif t.startswith('int'):
+        ct = 'long[]'
+    else:
+        raise ValueError("Numpy array can only have type float or integer.")
+    return _pycephes.ffi.from_buffer(ct, a)
+    
