@@ -3,12 +3,14 @@
 Pycephes provides you with a Python interface to the HCephes library (a reformatted version of Netlib Cephes). It's based on [NCephes](https://github.com/limix/ncephes/tree/master) and updated to be compatible with modern Numba releases (tested on 0.57.0).
 
 ## Why?
-I wanted to use SciPy special functions in Numba functions running in nopython mode. That was not possible. As many of SciPy's special functions or just wrappers of Cephes functions, I made my own wrappers that were compatible with Numba.
+I wanted to use SciPy special functions in Numba functions running in nopython mode. That was not possible. As many of SciPy's special functions are just wrappers of Cephes functions, I made my own wrappers that were compatible with Numba.
 
 While PyCephes is much more bare-bones, a lazy ad hoc experiment indicates that there are some performance improvements, see [this notebook](/workspaces/pycephes/test.ipynb).
 
-## Supported Cephes functions
-See [FUNCTIONS.txt](./FUNCTIONS.txt)                                 
+## Cephes function bindings
+See [FUNCTIONS.txt](./FUNCTIONS.txt)
+
+I haven't tested most of them, but as long as the parameters and return types are scalar-valued they should work. Passing Numpy arrays require some more work.
 
 ## Installation
 1. Install the [hcephes](https://github.com/limix/hcephes) binary. I recommend compiling it from source - but you'll need Cmake.
