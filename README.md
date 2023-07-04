@@ -13,7 +13,12 @@ It is important to note that Pycephes does not perform validation of the argumen
 In the event that you provide invalid arguments, Hcephes will display an error message and return a fallback value. Please keep in mind that an argument can be considered invalid even if the data type is correct. For example, the binomial distribution function requires arguments to be positive, with the parameter `p` ranging from 0 to 1 and `k` being smaller than `n`. Once again, please consult [FUNCTIONS.txt](./FUNCTIONS.txt) for more information.
 
 ## Cephes Function Bindings
-For a list of available Cephes functions and their descriptions, please refer to [FUNCTIONS.txt](./FUNCTIONS.txt). Please note that I have not tested all of the functions extensively, but as long as the parameters and return types are scalar-valued, they should work properly. If you intend to pass Numpy arrays as arguments, additional work may be required.
+For a list of available Cephes functions and their descriptions, please refer to [FUNCTIONS.txt](./FUNCTIONS.txt). Please note that I have not tested all of the functions extensively, but as long as the parameters and return types are scalar-valued, they should work properly. If you intend to pass Numpy arrays as arguments, things get a little more involved as you'll have to get the pointer to its buffer:
+```python
+a = np.zeros(10, dtype=np.float64)
+pointer = pycephes.from_buffer("double[]", a)
+function_you_want_to_use(pointer)
+```
 
 ## Installation
 To install Pycephes, please follow these steps:
