@@ -43,7 +43,6 @@ def test_jv():
 
 
 def test_ellipe():
-    # This function is used in finding the circumference of an ellipse with semi-major axis a and semi-minor axis b.
     a = 3.5
     b = 2.1
     e_sq = 1.0 - b**2/a**2

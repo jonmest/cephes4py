@@ -1,11 +1,17 @@
 import _pycephes
 import logging
-from importlib.metadata import version
 import os
-
 from ._test import test
 
-from _pycephes.lib import hcephes_bdtr as bdtr
+from _pycephes.lib import hcephes_bdtr as _bdtr
+
+def bdtr(k: int, n: int, p: float):
+    """
+    Binomial distribution
+    """
+    return _bdtr(k, n, p)
+
+
 from _pycephes.lib import hcephes_bdtrc as bdtrc
 from _pycephes.lib import hcephes_bdtri as bdtri
 from _pycephes.lib import hcephes_beta as beta

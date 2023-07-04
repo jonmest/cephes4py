@@ -1,7 +1,4 @@
-from setuptools import setup, Extension
-from glob import glob
-import platform
-
+from setuptools import setup
 
 setup(
     name="pycephes",
