@@ -3,31 +3,7 @@ import logging
 from importlib.metadata import version
 import os
 
-# Register with Numba
-numba_installed = False
-try:
-    import numba
-    numba_installed = True
-except ModuleNotFoundError as _:
-    pass
-
-if numba_installed:
-    try:
-        from numba.core.typing.cffi_utils import register_module as _register_module
-        _register_module(_pycephes)
-    except ModuleNotFoundError as _:
-        logging.warn("Failed to register Cephes bindings to Numba. You will be unable to call the bindings in Numba-jitted functions in nopython mode.")
-
-def phelp(fnc):
-    signature = None
-    folder = os.path.dirname(os.path.abspath(__file__))
-    with open(os.path.join(folder, 'interface.h')) as f:
-        for line in f:
-            if fnc.__name__ in line:
-                signature = line.rstrip()
-    # Manually inspect the argument types and return type
-    return signature
-
+from ._test import test
 
 from _pycephes.lib import hcephes_bdtr as bdtr
 from _pycephes.lib import hcephes_bdtrc as bdtrc
@@ -270,3 +246,28 @@ __all__ = [
     "rmul",
     "rsub",
 ]
+
+
+# Register with Numba
+numba_installed = False
+try:
+    import numba
+    numba_installed = True
+except ModuleNotFoundError as _:
+    pass
+
+if numba_installed:
+    try:
+        from numba.core.typing.cffi_utils import register_module as _register_module
+        _register_module(_pycephes)
+    except ModuleNotFoundError as _:
+        logging.warn("Failed to register Cephes bindings to Numba. You will be unable to call the bindings in Numba-jitted functions in nopython mode.")
+
+def phelp(fnc):
+    signature = None
+    folder = os.path.dirname(os.path.abspath(__file__))
+    with open(os.path.join(folder, 'interface.h')) as f:
+        for line in f:
+            if fnc.__name__ in line:
+                signature = line.rstrip()
+    return signature
