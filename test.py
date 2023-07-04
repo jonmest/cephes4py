@@ -62,7 +62,8 @@ def test_fdtr():
 def test_chbevl():
     array = np.zeros(29, dtype=np.float_)
     array[:] = -8
-    pycephes.chbevl(2, pycephes.to_buf(array), 32)
+    pycephes.chbevl(2, pycephes.np_from_buf(array), 32)
+    pycephes.chbevl(2, pycephes.from_buffer("double[]", array), 32)
 
 if __name__ == "__main__":
     test_chbevl()

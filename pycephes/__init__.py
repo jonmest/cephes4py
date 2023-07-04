@@ -263,21 +263,6 @@ if numba_installed:
     except ModuleNotFoundError as _:
         logging.warn("Failed to register Cephes bindings to Numba. You will be unable to call the bindings in Numba-jitted functions in nopython mode.")
 
-def phelp(fnc):
-    signature = None
-    folder = os.path.dirname(os.path.abspath(__file__))
-    with open(os.path.join(folder, 'interface.h')) as f:
-        for line in f:
-            if fnc.__name__ in line:
-                signature = line.rstrip()
-    return signature
-
-data_type_map = {
-    'float64': 'double[]',
-    'float32': 'float[]',
-    'int64': 'long[]',
-    'int32': 'int[]'
-}
 
 def np_from_buf(a: np.array):
     """ 
@@ -296,3 +281,6 @@ def np_from_buf(a: np.array):
         raise ValueError("Numpy array can only have type float or integer.")
     return _pycephes.ffi.from_buffer(ct, a)
     
+
+def from_buffer(type, array):
+    return _pycephes.ffi.from_buffer(type, array)
