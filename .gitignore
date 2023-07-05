@@ -1,6 +1,6 @@
 **__pycache__**
 build
-pycephes.egg-info
+cephes4py.egg-info
 *.c
 *.o
 *.cpython

@@ -122,7 +122,6 @@ ffibuilder = FFI()
 libs = ["hcephes"]
 
 folder = os.path.dirname(os.path.abspath(__file__))
-
 with open(join(folder, "interface.h"), "r") as f:
     ffibuilder.cdef(f.read())
 
@@ -143,10 +142,9 @@ if platform.system() == "Darwin":
     if len(library_dirs) > 0:
         extra_link_args += ["-Wl,-rpath," + ",-rpath,".join(library_dirs)]
 
-print(s.get_include_dirs())
 
 ffibuilder.set_source(
-    "_pycephes",
+    "_cephes4py",
     '#include "hcephes.h"',
     libraries=libs,
     library_dirs=library_dirs,
