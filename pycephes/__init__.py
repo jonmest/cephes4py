@@ -1,6 +1,5 @@
 import _pycephes
 import logging
-import os
 
 import numpy as np
 from ._test import test

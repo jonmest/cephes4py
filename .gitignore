@@ -5,3 +5,4 @@ pycephes.egg-info
 *.o
 *.cpython
 *.so
+dist
