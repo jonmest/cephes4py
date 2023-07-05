@@ -3,9 +3,9 @@
 Pycephes is a Python interface to the HCephes library, which is a reformatted version of Netlib Cephes. It provides a convenient way to access the functionality of the HCephes library within Python. Pycephes has been updated to ensure compatibility with modern Numba releases (specifically tested on version 0.57.0).
 
 ## Motivation
-The motivation behind developing Pycephes was the need to use SciPy special functions within Numba functions running in nopython mode. Unfortunately, this was not possible due to compatibility issues. Since many of SciPy's special functions are actually wrappers of Cephes functions, I decided to create my own wrappers that were compatible with Numba.
+The motivation behind developing Pycephes was the need to use SciPy special functions within Numba functions running in nopython mode. Unfortunately, this was not possible due to compatibility issues. Since many of SciPy's special functions are actually wrappers of Cephes functions, I decided to create my own bindings to Cephes that were compatible with Numba.
 
-Although Pycephes is a more stripped-down version, I have conducted a preliminary experiment that suggests some performance improvements. You can refer to [this notebook](/workspaces/pycephes/test.ipynb) for more details.
+Although Pycephes is much less "batteries included", I have conducted a preliminary experiment that suggests some performance improvements as well. You can refer to [this notebook](/workspaces/pycephes/test.ipynb) for more details.
 
 # No Argument Validation
 It is important to note that Pycephes does not perform validation of the arguments passed to the underlying C-functions. This decision was made because validating even a single argument in Python could potentially double the execution time. Additionally, it would require wrapping the functions with the validation code, which makes them uncompatible with Numba. Therefore, I have chosen to leave the responsibility and freedom of argument validation to you. Please refer to [FUNCTIONS.txt](./FUNCTIONS.txt) or [interface.h](pycephes/interface.h) to see the expected parameter and return types.
