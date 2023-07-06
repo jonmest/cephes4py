@@ -1,6 +1,17 @@
-# cephes4py
 
-cephes4py is a Python interface to the HCephes library, which is a reformatted version of Netlib Cephes. It provides a convenient way to access the functionality of the HCephes library within Python. cephes4py has been updated to ensure compatibility with modern Numba releases (specifically tested on version 0.57.0).
+<div align="center">
+   <h1 align="center">Cephes4py</h1>
+   <h2 align="center">Python bindings to the Cephes math library. First-class support for Numba 🚀 </h2>
+   <br />
+   <a href="https://github.com/jonmest/cephes4py/blob/main/FUNCTIONS.txt"><strong>Explore the available functions »</strong></a>
+   <br />
+   <a href="https://github.com/jonmest/cephes4py/issues">Report Bug</a>
+   ·
+   <a href="https://github.com/jonmest/cephes4py/issues">Request Feature</a>
+</div>
+<br>
+
+Cephes4py is a Python interface to the HCephes library, which is a reformatted version of Netlib Cephes. It provides a convenient way to access the functionality of the HCephes library within Python. cephes4py has been updated to ensure compatibility with modern Numba releases (specifically tested on version 0.57.0).
 
 ## Motivation
 The motivation behind developing cephes4py was the need to use SciPy special functions within Numba functions running in nopython mode. Unfortunately, this was not possible due to compatibility issues. Since many of SciPy's special functions are actually wrappers of Cephes functions, I decided to create my own bindings to Cephes that were compatible with Numba.
@@ -27,12 +38,11 @@ To install cephes4py, please follow these steps:
    ```sh
    curl -fsSL https://git.io/JerYI | GITHUB_USER=limix GITHUB_PROJECT=hcephes bash
    ```
-2. Navigate to the root directory of this repository.
-3. Install the cephes4py package by running the following command:
+2. Install the cephes4py package by running the following command:
    ```sh
-   pip install .
+   pip install cephes4py
    ```
-4. You're all set! You can now use cephes4py in your Python code:
+3. You're all set! You can now use cephes4py in your Python code:
    ```python
    import cephes4py
    
